@@ -8,8 +8,9 @@ const invalidTest = (badtab) => {
     throw new Error("Accept invalid crontab");
   })
   .catch(function(err) {
-    if(err.message=="Accept invalid crontab") return Promise.reject();
-    return Promise.resolve();
+    return (err.message=="Accept invalid crontab")?
+      Promise.reject():
+      Promise.resolve();
   });
 };
 
@@ -379,10 +380,6 @@ describe("Basic tests", function() {
   describe("Invalid:", function() {
     it("null pattern", function() {
       return invalidTest(null);
-    });
-
-    it("undefined pattern", function() {
-      return invalidTest(undefined);
     });
 
     describe("not even close:", function() {

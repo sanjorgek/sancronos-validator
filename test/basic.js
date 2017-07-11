@@ -164,6 +164,64 @@ describe("Basic tests", function() {
       });
     });
 
+    describe("six-tab extended patter:", function() {
+      it("once a seconds", function() {
+        return sancronos.isValid("* * * * * *");
+      });
+      it("once a minute", function() {
+        return sancronos.isValid("* * * * * *");
+      });
+      it("range of seconds", function() {
+        return sancronos.isValid("1-59 * * * * * *");
+      });
+      it("range of minutes", function() {
+        return sancronos.isValid("1-59 * * * * *");
+      });
+      it("mixed days, hours, minutes and seconds", function() {
+        return sancronos.isValid("1,2-5,6-23/7,4 1,2-5,6-23/7 1,2-5,6-23/7,4 1,2-5,6-23/7 * * *");
+      });
+      it("mixed months, days, hours, minutes and seconds", function() {
+        return sancronos.isValid(
+          "1,2-5,6-23/7,4 1,2-5,6-23/7 1,2-5,6-23/7,4 1,2-5,6-23/7 1,2-5,6-12/7 * *");
+      });
+      it("last day of week", function() {
+        return sancronos.isValid("0 * * * * L *");
+      });
+      it("last 5th day of the month", function() {
+        return sancronos.isValid("0 * * * * 5L *");
+      });
+      it("mixed weekdays, monthdays, hours, minutes and seconds", function() {
+        return sancronos.isValid("1,2-5,6-23/7,4 1,2-5,6-23/7 1,2-5,6-23/7,4 1,2-5,6-23/7 * 1,2-4/2,5,6");
+      });
+      it("mixed weekdays, monthdays, hours, minutes and years", function() {
+        return sancronos.isValid("1,2-5,6-23/7 1,2-5,6-23/7,4 1,2-5,6-23/7 * 1,2-4/2,5,6 *");
+      });
+      it("the third Friday of the month", function() {
+        return sancronos.isValid("0 * * * * 5#3");
+      });
+      it("sunday", function() {
+        return sancronos.isValid("0 * * * * 0");
+      });
+      it("once a year", function() {
+        return sancronos.isValid("0 1 1 * *");
+      });
+      it("range of years", function() {
+        return sancronos.isValid("* * * * * 1989-2099");
+      });
+      it("steps years", function() {
+        return sancronos.isValid("* * * * */7");
+      });
+      it("range steps years 2", function() {
+        return sancronos.isValid("* * * * * 2018-3000/7");
+      });
+      it("mixed years", function() {
+        return sancronos.isValid("* * * * * 2021,2045-2500,2666-2773/7,3004");
+      });
+      it("mixed years, weekdays, monthdays, hours, minutes and seconds", function() {
+        return sancronos.isValid("1,2-5,6-23/7 1,2-5,6-23/7,4 1,2-5,6-23/7 * 1,2-4/2,5,6 2021,2045-2500,2666-2773/7,3004");
+      });
+    });
+
     describe("extended patter:", function() {
       it("once a seconds", function() {
         return sancronos.isValid("* * * * * * *");
@@ -394,9 +452,6 @@ describe("Basic tests", function() {
       });
       it("large tab: * * * * * * * *", function() {
         return invalidTest("* * * * * * * *");
-      });
-      it("middle tab: * * * * * *", function() {
-        return invalidTest("* * * * * *");
       });
     });
 

@@ -42,6 +42,10 @@ See `test/` for more details.
 
 ## Changelog
 
+### [1.0.1](https://github.com/sanjorgek/sancronos-validator/tree/v1.0.1) (11-07-2017)
+
+* README with examples.
+
 ### [1.0.0](https://github.com/sanjorgek/sancronos-validator) (11-07-2017)
 
 Start

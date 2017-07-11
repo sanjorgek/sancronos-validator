@@ -18,13 +18,42 @@ Cron expression validator
   [![NPM][graph-image]][graph-url]
 
 ## Settings
-Install sanpassport
+Install sancronos-validator
 
 ```bash
 $ npm install sancronos-validator
 ```
 
 ## Use
+
+Accepts clasic crontab
+
+```
+  x    x    x    x    x
+  ┬    ┬    ┬    ┬    ┬
+  │    │    │    │    │
+  │    │    │    │    │
+  │    │    │    │    └───── day of week (0 - 7, - * /) (0 or 7 is sunday)
+  │    │    │    └────────── month (1 - 12 , - * /)
+  │    │    └─────────────── day of month (1 - 31 , - * /)
+  │    └──────────────────── hour (0 - 23 , - * /)
+  └───────────────────────── minutes (0 - 59 , - * /)
+```
+
+Accepts extended crontab
+
+```
+  x    x    x    x    x    x    x
+  ┬    ┬    ┬    ┬    ┬    ┬    ┬
+  │    │    │    │    │    │    │
+  │    │    │    │    │    │    └ year (1900 - 3000 , - * /) optional
+  │    │    │    │    │    └───── day of week (0 - 7 , - * / L #) (0 or 7 is sunday)
+  │    │    │    │    └────────── month (1 - 12 , - * /)
+  │    │    │    └─────────────── day of month (1 - 31 , - * / L W)
+  │    │    └──────────────────── hour (0 - 23 , - * /)
+  │    └───────────────────────── minutes (0 - 59 , - * /)
+  └────────────────────────────── seconds (0 - 59 , - * /) optional
+```
 
 ```javascript
 const sancronos = require("sancronos-validator");

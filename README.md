@@ -1,4 +1,4 @@
-# sancron-validator
+# sancronos-validator
 
   [![NPM Version][npm-image]][npm-url]
   [![NPM Downloads][downloads-image]][downloads-url]
@@ -12,10 +12,39 @@
   [![Issue Count](https://codeclimate.com/github/sanjorgek/sancronos-validator/badges/issue_count.svg)](https://codeclimate.com/github/sanjorgek/sancronos-validator)
 
 ## About
+
 Cron expression validator
 
   [![NPM][graph-image]][graph-url]
 
+## Settings
+Install sanpassport
+
+```bash
+$ npm install sancronos-validator
+```
+
+## Use
+
+```javascript
+const sancronos = require("sancronos-validator");
+//..
+sancronos.isValid("* * * * *")
+.then(function(crontab) {
+  //.. do something
+})
+.catch(function(err) {
+  // handle error
+});
+```
+
+See `test/` for more details.
+
+## Changelog
+
+### [1.0.0](https://github.com/sanjorgek/sancronos-validator) (11-07-2017)
+
+Start
 
 [npm-image]: https://img.shields.io/npm/v/sancronos-validator.svg
 [npm-url]: https://npmjs.org/package/sancronos-validator

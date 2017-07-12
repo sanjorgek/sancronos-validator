@@ -30,8 +30,11 @@ describe("RegEx tests", function() {
     it("range steps 2", function() {
       "1-59/3".match(testRE)[0].should.equal("1-59/3");
     });
-    it("range steps 2", function() {
+    it("range steps 3", function() {
       "1-59/300".match(testRE)[0].should.equal("1-59/30");
+    });
+    it("range steps 4", function() {
+      "0/3".match(testRE)[0].should.equal("0/3");
     });
     it("list", function() {
       "1,3,4,56,78,9".match(testRE)[0].should.equal("1,3,4,56,7");
@@ -73,6 +76,9 @@ describe("RegEx tests", function() {
     it("range steps 2", function() {
       "1-19/300".match(testRE)[0].should.equal("1-19/3");
     });
+    it("range steps 3", function() {
+      "0/3".match(testRE)[0].should.equal("0/3");
+    });
     it("list", function() {
       "1,3,4,56,78,9".match(testRE)[0].should.equal("1,3,4,5");
     });
@@ -110,8 +116,11 @@ describe("RegEx tests", function() {
     it("range steps 2", function() {
       "1-12/3".match(testRE)[0].should.equal("1-12/3");
     });
-    it("range steps 2", function() {
+    it("range steps 3", function() {
       "1-12/300".match(testRE)[0].should.equal("1-12/3");
+    });
+    it("range steps 4", function() {
+      "1/3".match(testRE)[0].should.equal("1/3");
     });
     it("list", function() {
       "1,3,4,56,78,9".match(testRE)[0].should.equal("1,3,4,5");
@@ -123,7 +132,7 @@ describe("RegEx tests", function() {
       "*/3,3-9/4,1-12/3,20,23".match(testRE)[0].should.equal("*/3,3-9/4,1-12/3,2");
     });
     it("mixed 2", function() {
-      "*/3,3-9,30-49/3,580,59".match(testRE)[0].should.equal("*/3,3-9,3");
+      "*/3,2/3,3-9,30-49/3,580,59".match(testRE)[0].should.equal("*/3,2/3,3-9,3");
     });
   });
 
@@ -161,6 +170,9 @@ describe("RegEx tests", function() {
     });
     it("range steps 5", function() {
       "1-12/3".match(testRE)[0].should.equal("1-12/3");
+    });
+    it("range steps 6", function() {
+      "1/3".match(testRE)[0].should.equal("1/3");
     });
     it("list", function() {
       "1,3,4,56,78,9".match(testRE)[0].should.equal("1,3,4,5");
@@ -228,6 +240,9 @@ describe("RegEx tests", function() {
     });
     it("range steps 5", function() {
       "1-6/3".match(testRE)[0].should.equal("1-6/3");
+    });
+    it("range steps 6", function() {
+      "1/3".match(testRE)[0].should.equal("1/3");
     });
     it("list", function() {
       "1,3,4,56,78,9".match(testRE)[0].should.equal("1,3,4,5");
@@ -307,6 +322,9 @@ describe("RegEx tests", function() {
     });
     it("range steps 4", function() {
       "2134-2224/3000000".match(testRE)[0].should.equal("2134-2224/3000");
+    });
+    it("range steps 5", function() {
+      "1999/3".match(testRE)[0].should.equal("1999/3");
     });
     it("list", function() {
       should.not.exist("1,3,4,56,78,9".match(testRE));

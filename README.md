@@ -54,7 +54,11 @@ Accepts extended crontab
   │    └───────────────────────── minutes (0 - 59 , - * /)
   └────────────────────────────── seconds (0 - 59 , - * /) optional
 ```
+But... who can use `sancronos-validator`?
 
+Answer: **Everyone!**
+
+_For Promise lovers_
 ```javascript
 const sancronos = require("sancronos-validator");
 //..
@@ -67,9 +71,35 @@ sancronos.isValid("* * * * *")
 });
 ```
 
+_For callback lovers_
+```javascript
+const sancronos = require("sancronos-validator");
+//..
+sancronos.isValid("* * * * *", (err, crontab) => {
+  if(err){
+    //Oops I did it again!
+  }
+  //Do something with your newly validated crontab
+});
+```
+
+_For sync lovers_
+```javascript
+const sancronos = require("sancronos-validator");
+//..
+let crontab = sancronos.isValid("* * * * *", true);
+//Do something with your crontab
+//Be aware that in case it's invalid, it will throw an error.
+```
+
 See `test/` for more details.
 
 ## Changelog
+
+### [1.2.0](https://github.com/sanjorgek/sancronos-validator/tree/v1.2.0) (18-07-2017)
+
+* Added callbacks
+* Added sync
 
 ### [1.0.1](https://github.com/sanjorgek/sancronos-validator/tree/v1.0.1) (11-07-2017)
 
@@ -101,4 +131,3 @@ Start
 [graph-url]: https://nodei.co/npm/sancronos-validator/
 [codacy-url]: https://www.codacy.com/app/sanjorgek/sancronos-validator?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sanjorgek/sancronos-validator&amp;utm_campaign=Badge_Grade
 [codacy-image]: https://api.codacy.com/project/badge/Grade/5a4906c4dbd84637918c304c97b81d25
-
